@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "public/*.user.js",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*\.user\.js)",
+      "headers": { "Cache-Control": "public, max-age=0, must-revalidate" },
+      "dest": "/public/$1"
+    }
+  ]
+}
